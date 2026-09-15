@@ -87,9 +87,9 @@ Los flujos de salida permiten escribir datos.
 
 | Elemento | Descripción |
 |---|---|
-| Entrada | |
-| Procesamiento | |
-| Salida | |
+| Entrada | Input Stream |
+| Procesamiento | Programa |
+| Salida | Output Stream |
 
 ```text
                    INPUT STREAM
@@ -114,6 +114,7 @@ Los flujos de salida permiten escribir datos.
 ```
 
 **Pregunta:** ¿Qué tipo de flujo resulta más apropiado para este problema: bytes o caracteres? Justifique.
+**Caracteres, ya que se esta leyendo un archivo de texto.**
 
 # Parte III. Recibir y representar el archivo
 
