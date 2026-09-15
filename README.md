@@ -1,7 +1,7 @@
 # Práctica guiada: Contador de frecuencia de palabras usando flujos de E/S en Java
 
-**Nombre:** Santiago Beltran Astorga
-**Expediente:** 225203551
+**Nombre:** Santiago Beltran Astorga  
+**Expediente:** 225203551  
 **Curso:** Desarrollo de Sistemas III  
 **Tema:** Flujos de entrada/salida en Java  
 **Duración sugerida:** 90–120 minutos  
