@@ -1,3 +1,6 @@
+import java.nio.file.Path;
+
+
 public class ContadorPalabras {
     public static void main(String[] args) {
         if (args.length != 1) {
@@ -7,5 +10,10 @@ public class ContadorPalabras {
 
         String nombreArchivo = args[0];
         System.out.println("Archivo: " + nombreArchivo);
+
+        Path archivo = Path.of(args[0]);
+
+        System.out.println("Archivo: " + archivo.getFileName());
+        System.out.println("Ruta: " + archivo.toAbsolutePath());
     }
 }
