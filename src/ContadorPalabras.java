@@ -1,5 +1,5 @@
 import java.nio.file.Path;
-
+import java.nio.file.Files;
 
 public class ContadorPalabras {
     public static void main(String[] args) {
@@ -15,5 +15,10 @@ public class ContadorPalabras {
 
         System.out.println("Archivo: " + archivo.getFileName());
         System.out.println("Ruta: " + archivo.toAbsolutePath());
+
+        if (!Files.exists(archivo)) {
+            System.err.println("El archivo no existe: " + archivo);
+            return;
+        }
     }
 }
