@@ -1,5 +1,7 @@
 import java.nio.file.Path;
 import java.nio.file.Files;
+import java.io.BufferedReader;
+import java.io.IOException;
 
 public class ContadorPalabras {
     public static void main(String[] args) {
@@ -19,6 +21,19 @@ public class ContadorPalabras {
         if (!Files.exists(archivo)) {
             System.err.println("El archivo no existe: " + archivo);
             return;
+        }
+
+        try (
+            BufferedReader lector = Files.newBufferedReader(archivo)
+        ) {
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+                System.out.println(linea);
+            }
+
+        } catch (IOException e) {
+            System.err.println("Error al leer el archivo: " + e.getMessage());
         }
     }
 }
