@@ -30,6 +30,12 @@ public class ContadorPalabras {
 
             while ((linea = lector.readLine()) != null) {
                 System.out.println(linea);
+
+                String[] palabras = linea.split("\\s+");
+
+                for (String palabra : palabras) {
+                    System.out.println(palabra);
+                }
             }
 
         } catch (IOException e) {
