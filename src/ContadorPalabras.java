@@ -2,6 +2,8 @@ import java.nio.file.Path;
 import java.nio.file.Files;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ContadorPalabras {
     public static void main(String[] args) {
@@ -23,6 +25,8 @@ public class ContadorPalabras {
             return;
         }
 
+        Map<String, Integer> frecuencias = new HashMap<>();
+
         try (
             BufferedReader lector = Files.newBufferedReader(archivo)
         ) {
@@ -42,9 +46,14 @@ public class ContadorPalabras {
 
                 for (String palabra : palabras) {
                     System.out.println(palabra);
+                    if (frecuencias.containsKey(palabra)) {
+                        int frecuencia = frecuencias.get(palabra);
+                        frecuencias.put(palabra, frecuencia + 1);
+                    } else {
+                        frecuencias.put(palabra, 1);
+                    }
                 }
             }
-
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());
         }
