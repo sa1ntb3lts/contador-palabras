@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
+
 
 public class ContadorPalabras {
     public static void main(String[] args) {
@@ -53,13 +55,6 @@ public class ContadorPalabras {
                         frecuencias.put(palabra, 1);
                     }
                 }
-            }
-            for (Map.Entry<String, Integer> entrada : frecuencias.entrySet()) {
-                System.out.printf(
-                    "%-20s %d%n",
-                    entrada.getKey(),
-                    entrada.getValue()
-                );
             }
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());
