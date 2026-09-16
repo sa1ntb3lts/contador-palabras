@@ -29,8 +29,6 @@ public class ContadorPalabras {
             String linea;
 
             while ((linea = lector.readLine()) != null) {
-                System.out.println(linea);
-
                 linea = linea.toLowerCase();
 
                 // Encontrar cualquier carácter que no sea una letra,
