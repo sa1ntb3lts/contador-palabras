@@ -39,21 +39,12 @@ public class ContadorPalabras {
 
                 // Encontrar cualquier carácter que no sea una letra,
                 // un número o un espacio en blanco.
-                linea = linea.replaceAll(
-                    "[^\\p{L}\\p{N}\\s]",
-                    ""
-                );
+                linea = linea.replaceAll("[^\\p{L}\\p{N}\\s]", "");
 
                 String[] palabras = linea.trim().split("\\s+");
 
                 for (String palabra : palabras) {
-                    System.out.println(palabra);
-                    if (frecuencias.containsKey(palabra)) {
-                        int frecuencia = frecuencias.get(palabra);
-                        frecuencias.put(palabra, frecuencia + 1);
-                    } else {
-                        frecuencias.put(palabra, 1);
-                    }
+                    frecuencias.put(palabra, frecuencias.getOrDefault(palabra, 0) + 1);
                 }
             }
         } catch (IOException e) {
