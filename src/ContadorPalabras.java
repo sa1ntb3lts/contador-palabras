@@ -43,6 +43,7 @@ public class ContadorPalabras {
                 String[] palabras = linea.trim().split("\\s+");
 
                 for (String palabra : palabras) {
+                    System.out.println(palabra);
                     if (frecuencias.containsKey(palabra)) {
                         int frecuencia = frecuencias.get(palabra);
                         frecuencias.put(palabra, frecuencia + 1);
