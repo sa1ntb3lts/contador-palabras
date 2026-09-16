@@ -240,7 +240,7 @@ y
 java
 ```
 
-**Pregunta:** ¿Qué ocurriría si no normalizamos las palabras antes de contabilizarlas?
+**Pregunta:** ¿Qué ocurriría si no normalizamos las palabras antes de contabilizarlas? El texto seria menos consistente.
 
 # Parte VI. Contabilizar palabras
 
