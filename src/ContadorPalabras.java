@@ -54,6 +54,13 @@ public class ContadorPalabras {
                     }
                 }
             }
+            for (Map.Entry<String, Integer> entrada : frecuencias.entrySet()) {
+                System.out.printf(
+                    "%-20s %d%n",
+                    entrada.getKey(),
+                    entrada.getValue()
+                );
+            }
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());
         }
