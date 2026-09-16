@@ -145,7 +145,7 @@ java ContadorPalabras
 java ContadorPalabras datos/texto.txt
 ```
 
-**Pregunta:** ¿Por qué resulta preferible recibir el nombre del archivo como argumento en lugar de escribirlo directamente en el código?
+**Pregunta:** ¿Por qué resulta preferible recibir el nombre del archivo como argumento en lugar de escribirlo directamente en el código? Porque no te limita a poder seleccionar un solo archivo.
 
 ## 6. Trabajar con `Path`
 
@@ -489,5 +489,3 @@ datos               29
 16. Generar `reporte-documento.txt`.
 17. Utilizar `try-with-resources`.
 18. Manejar adecuadamente `IOException`.
-
-
