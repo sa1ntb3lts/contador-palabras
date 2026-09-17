@@ -77,21 +77,30 @@ public class AnalizadorDocumento {
             Path archivoSalida = directorioSalida.resolve("reporte-documento.txt");
 
             try (PrintWriter escritor = new PrintWriter(Files.newBufferedWriter(archivoSalida))) {
-                escritor.println("ANÁLISIS DEL DOCUMENTO");
-                escritor.println("======================");
-                escritor.println();
-                escritor.println("Archivo: " + archivo.getFileName());
-                escritor.println();
-                escritor.println("Total de líneas: " + totalLineas);
-                escritor.println("Total de palabras: " + totalPalabras);
-                escritor.println("Palabras diferentes: " + palabrasDiferentes);
-                escritor.println();
-                escritor.println("Palabra más frecuente:");
-                escritor.println(palabraMasFrecuente + " (" + frecuenciaMaxima + ")");
-                escritor.println();
-                escritor.println("FRECUENCIA DE PALABRAS");
-                escritor.println("----------------------");
-                escritor.println();
+                escritor.printf("""
+                    ANÁLISIS DEL DOCUMENTO
+                    ======================
+
+                    Archivo: %s
+
+                    Total de líneas: %d
+                    Total de palabras: %d
+                    Palabras diferentes: %d
+
+                    Palabra más frecuente:
+                    %s (%d)
+
+                    FRECUENCIA DE PALABRAS
+                    ----------------------
+
+                    """,
+                    archivo.getFileName(),
+                    totalLineas,
+                    totalPalabras,
+                    palabrasDiferentes,
+                    palabraMasFrecuente,
+                    frecuenciaMaxima
+                );
 
                 for (Map.Entry<String, Integer> entrada : ordenadas.entrySet()) {
                     escritor.printf(
