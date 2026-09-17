@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
+
 
 public class ContadorPalabras {
     public static void main(String[] args) {
@@ -26,34 +28,45 @@ public class ContadorPalabras {
         }
 
         Map<String, Integer> frecuencias = new HashMap<>();
+        Map<String, Integer> ordenadas = new TreeMap<>(frecuencias);
+        int totalPalabras = 0;
 
-        try (
-            BufferedReader lector = Files.newBufferedReader(archivo)
-        ) {
+        try (BufferedReader lector = Files.newBufferedReader(archivo)) {
             String linea;
 
             while ((linea = lector.readLine()) != null) {
                 linea = linea.toLowerCase();
                 linea = linea.replaceAll("[^\\p{L}\\p{N}\\s]", "");
 
-                if (linea.isBlank()) {
-                    continue;
-                }
-
                 String[] palabras = linea.trim().split("\\s+");
 
                 for (String palabra : palabras) {
-                    System.out.println(palabra);
-                    if (frecuencias.containsKey(palabra)) {
-                        int frecuencia = frecuencias.get(palabra);
-                        frecuencias.put(palabra, frecuencia + 1);
-                    } else {
-                        frecuencias.put(palabra, 1);
-                    }
+                    frecuencias.put(palabra, frecuencias.getOrDefault(palabra, 0) + 1);
+                    totalPalabras++;
                 }
             }
         } catch (IOException e) {
-            System.err.println("Error de lectura: " + e.getMessage());
+            System.err.println("Error al leer el archivo: " + e.getMessage());
+        }
+
+        for (Map.Entry<String, Integer> entrada : frecuencias.entrySet()) {
+            System.out.printf("%-20s %d%n", entrada.getKey(), entrada.getValue());
+        }
+
+        try (
+            PrintWriter escritor = new PrintWriter(
+                Files.newBufferedWriter(archivoSalida)
+            )
+        ) {
+            escritor.printf("%-20s %s%n", "PALABRA", "FRECUENCIA");
+            escritor.println("-------------------------------");
+
+            for (Map.Entry<String, Integer> entrada : ordenadas.entrySet()) {
+                escritor.printf("%-20s %d%n", entrada.getKey(), entrada.getValue());
+            }
+
+        } catch (IOException e) {
+            System.err.println("Error al escribir resultados: " + e.getMessage());
         }
     }
 }
